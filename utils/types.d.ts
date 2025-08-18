@@ -10,6 +10,9 @@ export interface carType {
   model?: string;
   reg?: string;
   color?: string;
+  dateAdded?:string,
+  status:?string,
+  userId:?string
 }
 export interface locationType {
   latitude: number;

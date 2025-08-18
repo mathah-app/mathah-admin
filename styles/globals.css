@@ -33676,10 +33676,10 @@ div.tagsinput span.tag a {
     width: 100%;
   }
   .content-wrapper {
-  padding: 0px !important;
+  padding: 5px !important;
 }
 .card .card-body {
-    padding: 5px !important;
+    padding: 15px !important;
 }
 }
 
@@ -33759,4 +33759,12 @@ div.tagsinput span.tag a {
             height: 200px;
         }
     }
+    .navbar .navbar-menu-wrapper .navbar-toggler.navbar-toggler-right {
+        color: whitesmoke !important;
+    }
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-toggle:after {
+    color: #be8900;
+    font-size: 1rem;
+    display: none !important;
+}
 /*# sourceMappingURL=maps/style.css.map */

@@ -1,5 +1,5 @@
 import { db } from "@/utils/firebase.config";
-import { driverType, riderType, tripTypes } from "@/utils/types";
+import { carType, driverType, riderType, tripTypes } from "@/utils/types";
 import {
   collection,
   doc,
@@ -230,6 +230,27 @@ export const getTripDetails = async (id: string) => {
       return { id: snap.id, ...snap.data() } as tripTypes;
     } else {
       throw new Error("User not found");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getAllCars = async () => {
+  const tripsRef = collection(db, "cars");
+
+  const tripsSnap = await getDocs(tripsRef);
+  const data = tripsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() } as carType));
+  return data;
+};
+
+export const getVehicleDetails = async (id: string) => {
+  try {
+    const snap = await getDoc(doc(db, "cars", id));
+    if (snap.exists()) {
+      return { id: snap.id, ...snap.data() } as carType;
+    } else {
+      throw new Error("Car not found");
     }
   } catch (error) {
     throw error;
