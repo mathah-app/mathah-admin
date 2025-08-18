@@ -9,17 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.3.7",
+    "compass-mixins": "^0.12.12",
+    "firebase": "^12.1.0",
+    "google-map-react": "^2.2.5",
+    "next": "15.4.6",
     "react": "19.1.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "19.1.0",
-    "next": "15.4.6"
+    "sass": "^1.90.0",
+    "sweetalert2": "^11.22.4"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@iconify/react": "^6.0.0",
+    "@types/google-map-react": "^2.1.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
