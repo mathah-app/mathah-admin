@@ -4,25 +4,25 @@ import { riderType } from "@/utils/types";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-
+import Image from "next/image";
 export default function RiderDetails() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [data, setData] = useState<riderType>();
   const [loading, setLoading] = useState(true);
-   const [finances, setFinances] = useState<any>();
-      
-  const getRiderData = async () => {
-    try {
-      setData(await getRiderDetails(id as string));
-      setFinances(await getRiderTransactions(id as string));
-    } catch (e) {
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [finances, setFinances] = useState<any>();
+
   useEffect(() => {
-    if (!id) return; // Don't call if no id in URL
+    if (!id) return;
+    const getRiderData = async () => {
+      try {
+        setData(await getRiderDetails(id as string));
+        setFinances(await getRiderTransactions(id as string));
+      } catch (e) {
+      } finally {
+        setLoading(false);
+      }
+    };
     getRiderData();
   }, [id]);
   return (
@@ -31,14 +31,14 @@ export default function RiderDetails() {
         <div className="card">
           <div className="card-body">
             <div className="card-hearder-with-btn d-flex flex-row justify-content-between w-100">
-              <h2 className="card-title">
-                Rider Details
-              </h2>
+              <h2 className="card-title">Rider Details</h2>
             </div>
-            
-            {loading && <div className="text-align-center align-items-center">
+
+            {loading && (
+              <div className="text-align-center align-items-center">
                 <Spinner size="sm" color="#be8900" /> Loading Rider Details
-            </div>}
+              </div>
+            )}
             {!data && !loading && <p>No Rider Found Here</p>}
             {data && !loading && (
               <div className="align-items-center justify-content-between mb-4">
@@ -70,12 +70,16 @@ export default function RiderDetails() {
                 <div className="col-md-12">
                   <div className="thumbnail text-center">
                     <div className="name-avatar">
-                      <img
-                        src={data?.profile}
-                        width="100"
-                        height="100"
-                        alt=""
-                        style={{borderRadius:100, objectFit:'cover'}}
+                      <Image
+                        width={100}
+                        height={100}
+                        src={
+                          data?.profile
+                            ? data.profile
+                            : "/assets/images/faces/38.png"
+                        }
+                        style={{ objectFit: "cover", borderRadius: 100 }}
+                        alt="image"
                       />
                       {/* <p>{data?.id}</p> */}
                     </div>
@@ -124,7 +128,7 @@ export default function RiderDetails() {
                         <p>
                           Total Spent:{" "}
                           <span className="fin_stats" id="total_income">
-                           R {finances?.totalEarnings}.00
+                            R {finances?.totalEarnings}.00
                           </span>
                         </p>
                         <p>
@@ -142,7 +146,6 @@ export default function RiderDetails() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             )}

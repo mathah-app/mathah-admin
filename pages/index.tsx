@@ -33,10 +33,12 @@ export default function Home() {
                 <CardBody className="card-body py-0 px-0 px-sm-3">
                   <Row className="row align-items-center">
                     <Col sm={3} xl={2} className="col-4 col-sm-3 col-xl-2">
-                      <img
-                        src="assets/images/dashboard/Group126@2x.png"
+                      <Image
+                        src="/assets/images/dashboard/Group126@2x.png"
                         className="gradient-corona-img img-fluid"
                         alt=""
+                        width={200}
+                        height={300}
                       />
                     </Col>
                     <Col sm={7} xl={8} className="col-5 col-sm-7 col-xl-8 p-0">

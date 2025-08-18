@@ -24,17 +24,19 @@ export default function DriverDetails() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [acting, setActing] = useState(false);
-  const getDriverData = async () => {
-    try {
-      setData(await getDriverDetails(id as string));
-      setFinances(await getDriverTransactions(id as string));
-    } catch (e) {
-    } finally {
-      setLoading(false);
-    }
-  };
+
   useEffect(() => {
-    if (!id) return; // Don't call if no id in URL
+    if (!id) return;
+    const getDriverData = async () => {
+      try {
+        setData(await getDriverDetails(id as string));
+        setFinances(await getDriverTransactions(id as string));
+      } catch (e) {
+      } finally {
+        setLoading(false);
+      }
+    };
+    // Don't call if no id in URL
     getDriverData();
   }, [id]);
 
@@ -80,7 +82,7 @@ export default function DriverDetails() {
                         type="button"
                         className="btn btn-warning rounded-pill m-2"
                         style={{ color: "black" }}
-                        disabled ={acting}
+                        disabled={acting}
                         onClick={() => {
                           handleShow();
                           // suspendDriver(

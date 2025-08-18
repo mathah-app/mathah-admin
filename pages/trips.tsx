@@ -6,21 +6,20 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 
-export default function trips() {
+export default function Trips() {
   const [data, setData] = useState<tripTypes[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const getData = async () => {
-    try {
-      const d: any = await getAllTrips();
-      setData(d);
-      console.log(d);
-    } catch (error) {
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const d: any = await getAllTrips();
+        setData(d);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    };
     getData();
   }, []);
   return (

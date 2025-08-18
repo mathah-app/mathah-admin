@@ -1,10 +1,11 @@
 import {  getAllRiders } from "@/backend/admin";
 import MainPageWrapper from "@/components/wrappers/MainPageWrapper";
-import { ToLocalDate } from "@/utils/formats";
-import { driverType, riderType } from "@/utils/types";
+// import { ToLocalDate } from "@/utils/formats";
+import {riderType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-export default function riders() {
+import Image from "next/image";
+export default function Riders() {
   const [data, setData] = useState<riderType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -60,12 +61,15 @@ export default function riders() {
                             <>
                               <tr>
                                 <td>
-                                  <img
+                                  <Image
+                                  width={50}
+                                  height={50}
                                     src={
                                       item?.profile
                                         ? item.profile
-                                        : "assets/images/faces/38.png"
+                                        : "/assets/images/faces/38.png"
                                     }
+                                    style={{objectFit:'cover', borderRadius:50}}
                                     alt="image"
                                   />
                                 </td>

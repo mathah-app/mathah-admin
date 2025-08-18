@@ -4,7 +4,8 @@ import { ToLocalDate } from "@/utils/formats";
 import { driverType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-export default function drivers() {
+import Image from "next/image";
+export default function Drivers() {
   const [data, setData] = useState<driverType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -60,12 +61,15 @@ export default function drivers() {
                             <>
                               <tr>
                                 <td>
-                                  <img
+                                  <Image
+                                  width={50}
+                                  height={50}
                                     src={
                                       item?.profile
                                         ? item.profile
                                         : "assets/images/faces/38.png"
                                     }
+                                    style={{objectFit:'cover'}}
                                     alt="image"
                                   />
                                 </td>

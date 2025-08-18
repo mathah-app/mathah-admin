@@ -7,32 +7,25 @@ import { getTripDetails } from "@/backend/admin";
 import { useSearchParams } from "next/navigation";
 import GoogleMap from "@/components/partials/GoogleMap";
 
-const AnyReactComponent = ({ text }: any) => <div>{text}</div>;
 export default function Trip() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [data, setData] = useState<tripTypes>();
   const [loading, setLoading] = useState(true);
 
-  const getTripData = async () => {
-    try {
-      setData(await getTripDetails(id as string));
-    } catch (e) {
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
     if (!id) return;
+    const getTripData = async () => {
+      try {
+        setData(await getTripDetails(id as string));
+      } catch (e) {
+      } finally {
+        setLoading(false);
+      }
+    };
     getTripData();
   }, [id]);
-  const defaultProps = {
-    center: {
-      lat: data?.start_location?.latitude,
-      lng: data?.start_location?.longitude,
-    },
-    zoom: 11,
-  };
+
   return (
     <MainPageWrapper>
       <div className="row">

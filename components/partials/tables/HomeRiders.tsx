@@ -1,7 +1,7 @@
 import { getAllRiders } from "@/backend/admin";
 import { riderType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
-
+import Image from "next/image";
 export default function HomeRiders() {
   const [data, setData] = useState<riderType[]>([]);
   const getRiders = async () => {
@@ -34,8 +34,15 @@ export default function HomeRiders() {
                   <>
                     <tr>
                       <td>
-                        <img
-                          src={item.profile}
+                        <Image
+                          width={50}
+                          height={50}
+                          src={
+                            item?.profile
+                              ? item.profile
+                              : "/assets/images/faces/38.png"
+                          }
+                          style={{ objectFit: "cover", borderRadius: 50 }}
                           alt="image"
                         />
                       </td>
@@ -52,7 +59,9 @@ export default function HomeRiders() {
                         <span className="pl-2">{item.phone}</span>
                       </td>
                       <td>
-                        <span className="pl-2">{item.dateJoined?.toString()}</span>
+                        <span className="pl-2">
+                          {item.dateJoined?.toString()}
+                        </span>
                       </td>
                       <td>
                         <span className="pl-2">{item.status}</span>
