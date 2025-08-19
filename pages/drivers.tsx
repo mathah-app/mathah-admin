@@ -67,7 +67,7 @@ export default function Drivers() {
                                     src={
                                       item?.profile
                                         ? item.profile
-                                        : "assets/images/faces/38.png"
+                                        : "/assets/images/faces/38.png"
                                     }
                                     style={{objectFit:'cover'}}
                                     alt="image"

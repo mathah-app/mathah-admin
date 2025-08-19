@@ -2,7 +2,6 @@
 import {
   getDriverDetails,
   getDriverTransactions,
-  updateDriver,
 } from "@/backend/admin";
 import { ToLocalDate, validateAndFormatPhoneNumber } from "@/utils/formats";
 import { activateDriver, suspendDriver } from "@/utils/functions";
@@ -77,36 +76,34 @@ export default function DriverDetails() {
                         Activate
                       </button>
                     )}
-                    {data?.status !== "suspended" && (
-                      <button
-                        type="button"
-                        className="btn btn-warning rounded-pill m-2"
-                        style={{ color: "black" }}
-                        disabled={acting}
-                        onClick={() => {
-                          handleShow();
-                          // suspendDriver(
-                          //   router,
-                          //   id as string,
-                          //   validateAndFormatPhoneNumber(data?.phone)
-                          // );
-                        }}
-                      >
-                        {acting ? (
-                          <>
-                            <Spinner size="sm" /> Please Wait...
-                          </>
-                        ) : (
-                          <>
-                            <Icon
-                              fontSize={18}
-                              icon={"mdi:exclamation-thick"}
-                            />{" "}
-                            Suspend
-                          </>
-                        )}
-                      </button>
-                    )}
+                    {data?.status !== "suspended" &&
+                      data?.status !== "pending" && (
+                        <button
+                          type="button"
+                          className="btn btn-warning rounded-pill m-2"
+                          style={{ color: "black" }}
+                          disabled={acting}
+                          onClick={() => {
+                            handleShow();
+                            // suspendDriver(router, id as string, validateAndFormatPhoneNumber(data?.phone));
+                          }}
+                        >
+                          {acting ? (
+                            <>
+                              <Spinner size="sm" /> Please Wait...
+                            </>
+                          ) : (
+                            <>
+                              <Icon
+                                fontSize={18}
+                                icon={"mdi:exclamation-thick"}
+                              />{" "}
+                              Suspend
+                            </>
+                          )}
+                        </button>
+                      )}
+
                     <button
                       type="button"
                       className="btn btn-danger bg-danger rounded-pill m-2"

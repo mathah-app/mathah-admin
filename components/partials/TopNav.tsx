@@ -82,7 +82,9 @@ export default function TopNavbar({ toggleSidebar }: { toggleSidebar: () => void
                 <Dropdown.Item className="preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-account-key text-primary"></i>
+                      <i className="mdi mdi-account-key "></i>
+                <Icon icon={'mdi:account-key'} fontSize={20} className="text-primary" />
+
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -93,7 +95,9 @@ export default function TopNavbar({ toggleSidebar }: { toggleSidebar: () => void
                 <Dropdown.Item className="preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-account-check text-info"></i>
+                      <i className="mdi mdi-account-check "></i>
+                <Icon icon={'mdi:account-check'} fontSize={20}  color="#966b00"/>
+
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -151,7 +155,9 @@ export default function TopNavbar({ toggleSidebar }: { toggleSidebar: () => void
                 <Dropdown.Item className="preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-calendar text-success"></i>
+                      <i className="mdi  text-success"></i>
+                <Icon icon={'mdi:calendar'} fontSize={20} />
+
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -191,6 +197,7 @@ export default function TopNavbar({ toggleSidebar }: { toggleSidebar: () => void
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-settings text-success"></i>
                       <Icon icon={'mdi:settings'} />
+                      
                     </div>
                   </div>
                   <div className="preview-item-content">
