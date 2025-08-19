@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Image from "next/image";
+import { ToLocalDate } from "@/utils/formats";
 export default function RiderDetails() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -104,7 +105,7 @@ export default function RiderDetails() {
                         <p>Surname:{data?.surname}</p>
                         <p>Email:{data?.email} </p>
                         <p>Phone:{data?.phone} </p>
-                        <p>Date Registered:{data?.dateJoined?.toString()}</p>
+                        <p>Date Registered:{ToLocalDate(data?.dateJoined)}</p>
                       </div>
                     </div>
                   </div>

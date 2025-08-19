@@ -24,7 +24,6 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-
     <MainPageWrapper title="Mathah Dashboard">
       <div className={` ${geistSans.variable} ${geistMono.variable}`}>
         <main>
@@ -69,7 +68,7 @@ export default function Home() {
               </Card>
             </Col>
           </Row>
-            <Stats />
+          <Stats />
           <LiveTrips />
           <div className="row ">
             <div className="col-12 grid-margin">
@@ -77,7 +76,7 @@ export default function Home() {
                 <div className="card-body">
                   <div className="card-hearder-with-btn d-flex flex-row justify-content-between w-100 align-items-center">
                     <h4 className="card-title">Recent Drivers</h4>
-                    <a href="./drivers.php">
+                    <a href="/drivers">
                       <button type="button" className="btn btn-link btn-fw">
                         View All
                       </button>
@@ -88,7 +87,23 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+          <div className="row ">
+            <div className="col-12 grid-margin">
+              <div className="card">
+                <div className="card-body">
+                  <div className="card-hearder-with-btn d-flex flex-row justify-content-between w-100 align-items-center">
+                    <h4 className="card-title">Recent Riders</h4>
+                    <a href="/riders">
+                      <button type="button" className="btn btn-link btn-fw">
+                        View All
+                      </button>
+                    </a>
+                  </div>
+                  <HomeRiders />
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </MainPageWrapper>

@@ -2,6 +2,7 @@ import { getAllRiders } from "@/backend/admin";
 import { riderType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ToLocalDate } from "@/utils/formats";
 export default function HomeRiders() {
   const [data, setData] = useState<riderType[]>([]);
   const getRiders = async () => {
@@ -60,7 +61,7 @@ export default function HomeRiders() {
                       </td>
                       <td>
                         <span className="pl-2">
-                          {item.dateJoined?.toString()}
+                          {ToLocalDate(item?.dateJoined)}
                         </span>
                       </td>
                       <td>

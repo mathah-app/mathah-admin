@@ -5,6 +5,7 @@ import {riderType } from "@/utils/types";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import Image from "next/image";
+import { ToLocalDate } from "@/utils/formats";
 export default function Riders() {
   const [data, setData] = useState<riderType[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,7 @@ export default function Riders() {
                         <th> Surname</th>
                         <th> Email </th>
                         <th> Phone</th>
-                        {/* <th> Date Joined </th> */}
+                        <th> Date Joined </th>
                         <th> Status</th>
                         <th> Action </th>
                       </tr>
@@ -85,11 +86,11 @@ export default function Riders() {
                                 <td>
                                   <span className="pl-2">{item.phone}</span>
                                 </td>
-                                {/* <td>
+                                <td>
                                   <span className="pl-2">
-                                    {'dAT'}
+                                    {ToLocalDate(item.dateJoined)}
                                   </span>
-                                </td> */}
+                                </td>
                                 <td>
                                   <span className="pl-2">{item.status}</span>
                                 </td>

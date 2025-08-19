@@ -98,7 +98,7 @@ export default function LiveTrips() {
                                     </span>
                                   </td>
                                   <td>
-                                    <a href={`/driver?id=${item.id}`}>
+                                    <a href={`/trip?id=${item.id}`}>
                                       <button
                                         type="button"
                                         className="btn btn-outline-success"
