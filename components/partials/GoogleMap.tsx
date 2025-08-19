@@ -51,7 +51,7 @@ export default function GoogleMap({ data }: any) {
   return (
     <div style={{ height: "350px", width: "100%", borderRadius:20 }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP_API }}
+        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP_API as string }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         yesIWantToUseGoogleMapApiInternals
