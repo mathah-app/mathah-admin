@@ -1,18 +1,17 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {getFirestore } from "firebase/firestore";
+import { Firestore, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL
-
-
+  apiKey: "AIzaSyC5qpX_h4hWA84J5bpvaitDG1WhhP6TLWI",
+  authDomain: "avid-booth-438205-j9.firebaseapp.com",
+  databaseURL: "https://avid-booth-438205-j9-default-rtdb.firebaseio.com",
+  projectId: "avid-booth-438205-j9",
+  storageBucket: "avid-booth-438205-j9.firebasestorage.app",
+  messagingSenderId: "1083123235882",
+  appId: "1:1083123235882:web:0389747cdb72b9eff95753"
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app,'production')
