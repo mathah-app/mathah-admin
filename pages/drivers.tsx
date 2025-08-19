@@ -22,7 +22,7 @@ export default function Drivers() {
     getDrivers();
   }, []);
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Drivers">
       <div className="row ">
         <div className="col-12 grid-margin">
           <div className="card">

@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 import { Image, Dropdown } from "react-bootstrap";
@@ -6,10 +5,28 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 import { useRouter, usePathname } from "next/navigation";
 
-export default function SideBar() {
-   const path= usePathname();
+export default function SideBar({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
+  const path = usePathname();
   return (
-    <nav className="sidebar sidebar-offcanvas" id="sidebar">
+    <nav
+      className={`sidebar sidebar-offcanvas ${isOpen ? "active" : ""}`}
+      id="sidebar"
+    >
+      {/* mobile-only close button */}
+      <button
+        aria-label="Close"
+        className="btn btn-link text-light d-lg-none sidebar-close-btn"
+        onClick={onClose}
+        
+      >
+        <Icon icon="mdi:close" fontSize={24} />
+      </button>
       {/* Logo */}
       <div className="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <Link href="/" className="sidebar-brand brand-logo">
@@ -51,14 +68,18 @@ export default function SideBar() {
                 className="p-0 text-dark"
               >
                 <i className="mdi mdi-dots-vertical"></i>
-                <Icon icon={'mdi:dots-vertical'} fontSize={20} color="lightgray" />
+                <Icon
+                  icon={"mdi:dots-vertical"}
+                  fontSize={20}
+                  color="lightgray"
+                />
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="sidebar-dropdown preview-list">
                 <Dropdown.Item>
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
-                        {/* <Icon name="" /> */}
+                      {/* <Icon name="" /> */}
                       <i className="mdi mdi-settings text-primary"></i>
                     </div>
                   </div>
@@ -97,55 +118,75 @@ export default function SideBar() {
         </li>
 
         {/* Menu Links */}
-        <li className={`nav-item menu-items ${path=='/'&&'active'} `}>
+        <li className={`nav-item menu-items ${path == "/" && "active"} `}>
           <Link href="/" className="nav-link ">
             <span className="menu-icon">
               <i className="mdi mdi-speedometer"></i>
-              <Icon icon={'mdi:speedometer'} color="#8f5fe8" fontSize={20} />
+              <Icon icon={"mdi:speedometer"} color="#8f5fe8" fontSize={20} />
             </span>
             <span className="menu-title">Dashboard</span>
           </Link>
         </li>
 
-        <li className={`nav-item menu-items ${path.includes('/drivers') &&'active'}`}  >
+        <li
+          className={`nav-item menu-items ${
+            path.includes("/drivers") && "active"
+          }`}
+        >
           <Link href="/drivers" className="nav-link">
             <span className="menu-icon">
               <i className="mdi mdi-account-network"></i>
-              <Icon icon={'mdi:account-network'} color="#ffab00" fontSize={20} />
-
+              <Icon
+                icon={"mdi:account-network"}
+                color="#ffab00"
+                fontSize={20}
+              />
             </span>
             <span className="menu-title">Drivers</span>
           </Link>
         </li>
 
-        <li className={`nav-item menu-items ${path.includes('/rider') &&'active'}`}>
+        <li
+          className={`nav-item menu-items ${
+            path.includes("/rider") && "active"
+          }`}
+        >
           <Link href="/riders" className="nav-link">
             <span className="menu-icon">
               <i className="mdi mdi-account-multiple"></i>
-              <Icon icon={'mdi:account-multiple'} color="#fc424a" fontSize={20} />
-
+              <Icon
+                icon={"mdi:account-multiple"}
+                color="#fc424a"
+                fontSize={20}
+              />
             </span>
             <span className="menu-title">Riders</span>
           </Link>
         </li>
 
-        <li className={`nav-item menu-items ${path.includes('/trip') &&'active'}`}>
+        <li
+          className={`nav-item menu-items ${
+            path.includes("/trip") && "active"
+          }`}
+        >
           <Link href="/trips" className="nav-link">
             <span className="menu-icon">
               <i className="mdi mdi-taxi"></i>
-              <Icon icon={'mdi:taxi'} color="#0090e7" fontSize={20} />
-
+              <Icon icon={"mdi:taxi"} color="#0090e7" fontSize={20} />
             </span>
             <span className="menu-title">Trips</span>
           </Link>
         </li>
 
-        <li className={`nav-item menu-items ${path.includes('/vehicle') &&'active'}`}>
+        <li
+          className={`nav-item menu-items ${
+            path.includes("/vehicle") && "active"
+          }`}
+        >
           <Link href="/vehicles" className="nav-link">
             <span className="menu-icon">
               <i className="mdi mdi-car"></i>
-              <Icon icon={'mdi:car'} color="#be8900" fontSize={20} />
-
+              <Icon icon={"mdi:car"} color="#be8900" fontSize={20} />
             </span>
             <span className="menu-title">Vehicles</span>
           </Link>

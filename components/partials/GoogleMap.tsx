@@ -51,13 +51,13 @@ export default function GoogleMap({ data }: any) {
   return (
     <div style={{ height: "350px", width: "100%", borderRadius:20 }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAolWz5GQDeRPr62gfJ-YAcM6wU7Md8u3U" }}
+        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP_API }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         draggable={false}
-        
+
       />
     </div>
   );

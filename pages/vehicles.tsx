@@ -20,7 +20,7 @@ export default function Vehicles() {
     getCars();
   }, []);
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Vehicle Details">
       <div className="row ">
         <div className="col-12 grid-margin">
           <div className="card">

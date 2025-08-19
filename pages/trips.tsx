@@ -23,7 +23,7 @@ export default function Trips() {
     getData();
   }, []);
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Trips">
       <div className="row ">
         <div className="col-12 grid-margin">
           <div className="card">

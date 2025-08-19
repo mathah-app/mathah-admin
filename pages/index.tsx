@@ -10,6 +10,7 @@ import HomeDrivers from "@/components/partials/tables/HomeDrivers";
 import HomeRiders from "@/components/partials/tables/HomeRiders";
 import LiveTrips from "@/components/partials/tables/LiveTrips";
 import MyInput from "@/components/MyInput";
+import Stats from "@/components/partials/Stats";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
 
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Dashboard">
       <div className={` ${geistSans.variable} ${geistMono.variable}`}>
         <main>
           <Row className="row">
@@ -39,6 +40,7 @@ export default function Home() {
                         alt=""
                         width={200}
                         height={300}
+                        priority
                       />
                     </Col>
                     <Col sm={7} xl={8} className="col-5 col-sm-7 col-xl-8 p-0">
@@ -67,107 +69,7 @@ export default function Home() {
               </Card>
             </Col>
           </Row>
-          <Row className="row">
-            <Col
-              sm={6}
-              xl={3}
-              className="col-xl-3 col-sm-6 grid-margin stretch-card"
-            >
-              <Card className="">
-                <CardBody className="card-body">
-                  <div className="row">
-                    <div className="col-9">
-                      <div className="d-flex align-items-center align-self-start">
-                        <h3 className="mb-0">R120.5k</h3>
-                        <p className="text-success ml-2 mb-0 font-weight-medium">
-                          +3.5%
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-3">
-                      <div className="icon icon-box-success ">
-                        <span className="mdi mdi-arrow-top-right icon-item"></span>
-                        <Icon icon={"mdi:arrow-top-right"} />
-                      </div>
-                    </div>
-                  </div>
-                  <h6 className="text-muted font-weight-normal">
-                    Generated Revenue
-                  </h6>
-                </CardBody>
-              </Card>
-            </Col>
-            <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-              <div className="card">
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-9">
-                      <div className="d-flex align-items-center align-self-start">
-                        <h3 className="mb-0">2</h3>
-                        {/* <!-- <p className="text-success ml-2 mb-0 font-weight-medium">+11%</p> --> */}
-                      </div>
-                    </div>
-                    {/* <!-- <div className="col-3">
-                      <div className="icon icon-box-success">
-                        <span className="mdi mdi-arrow-top-right icon-item"></span>
-                      </div>
-                    </div> --> */}
-                  </div>
-                  <h6 className="text-muted font-weight-normal">
-                    Active Drivers
-                  </h6>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-              <div className="card">
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-9">
-                      <div className="d-flex align-items-center align-self-start">
-                        <h3 className="mb-0">10.5k</h3>
-                        <p className="text-danger ml-2 mb-0 font-weight-medium">
-                          -2.4%
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-3">
-                      <div className="icon icon-box-danger">
-                        <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                        <Icon icon={"mdi:arrow-bottom-left"} />
-                      </div>
-                    </div>
-                  </div>
-                  <h6 className="text-muted font-weight-normal">Passengers</h6>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-              <div className="card">
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-9">
-                      <div className="d-flex align-items-center align-self-start">
-                        <h3 className="mb-0">25k</h3>
-                        <p className="text-success ml-2 mb-0 font-weight-medium">
-                          +3.5%
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-3">
-                      <div className="icon icon-box-success ">
-                        <span className="mdi mdi-arrow-top-right icon-item"></span>
-                        <Icon icon={"mdi:arrow-top-right"} />
-                      </div>
-                    </div>
-                  </div>
-                  <h6 className="text-muted font-weight-normal">
-                    Successful Trips
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </Row>
+            <Stats />
           <LiveTrips />
           <div className="row ">
             <div className="col-12 grid-margin">

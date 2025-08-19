@@ -22,7 +22,7 @@ export default function Riders() {
     getRiders();
   }, []);
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Riders">
       <div className="row ">
         <div className="col-12 grid-margin">
           <div className="card">

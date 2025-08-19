@@ -1,17 +1,28 @@
 "use client";
 
+import { useAuth } from "@/context/AuthContext";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Dropdown } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 
-export default function TopNavbar() {
+export default function TopNavbar({ toggleSidebar }: { toggleSidebar: () => void }) {
   const [showCreate, setShowCreate] = useState(false);
   const [showMessages, setShowMessages] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const { logout } = useAuth();
 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      // optional: you can also redirect after logout
+      window.location.href = "/auth/login"; 
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
   return (
     <nav className="navbar p-0 fixed-top d-flex flex-row">
       {/* Logo (Mobile only) */}
@@ -20,7 +31,7 @@ export default function TopNavbar() {
           <Image
             src="/assets/images/icon.png"
             alt="logo"
-            width={50}
+            width={43}
             height={70}
             style={{ borderRadius: "5px", height: "auto", marginLeft:25 }}
           />
@@ -30,12 +41,15 @@ export default function TopNavbar() {
       {/* Navbar Menu Wrapper */}
       <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
         {/* Toggle Button */}
-        <button
+        {/* <button
           className="navbar-toggler navbar-toggler align-self-center"
           type="button"
+           onClick={toggleSidebar}
         >
           <span className="mdi mdi-menu"></span>
-        </button>
+          <Icon icon={'mdi:menu'} />
+
+        </button> */}
 
         {/* Search */}
         <ul className="navbar-nav w-100">
@@ -176,6 +190,7 @@ export default function TopNavbar() {
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-settings text-success"></i>
+                      <Icon icon={'mdi:settings'} />
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -183,16 +198,18 @@ export default function TopNavbar() {
                   </div>
                 </Dropdown.Item>
                 <div className="dropdown-divider"></div>
-                <Link href="/logout" className="dropdown-item preview-item">
+                <Button className="dropdown-item preview-item" onClick={handleLogout}  >
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-logout text-danger"></i>
+                      <Icon icon={'mdi:logout'} color="red" />
+
                     </div>
                   </div>
                   <div className="preview-item-content">
                     <p className="preview-subject mb-1">Log out</p>
                   </div>
-                </Link>
+                </Button>
                 <div className="dropdown-divider"></div>
                 <p className="p-3 mb-0 text-center">Advanced settings</p>
               </Dropdown.Menu>
@@ -204,6 +221,7 @@ export default function TopNavbar() {
         <button
           className="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
           type="button"
+          onClick={toggleSidebar}
         >
           <Icon icon={'mdi:menu'} />
         </button>

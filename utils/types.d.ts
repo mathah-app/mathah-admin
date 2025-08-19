@@ -79,3 +79,9 @@ export interface tripTypes {
 }
 
 
+export interface AuthContextType {
+  user: any | null; // you can make this stricter with Firebase User type
+  register: (email: string, password: string) => Promise<any>;
+  login: (email: string, password: string) => Promise<any>;
+  logout: () => Promise<void>;
+}

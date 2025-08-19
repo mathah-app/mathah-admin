@@ -27,7 +27,7 @@ export default function Trip() {
   }, [id]);
 
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Trip Details" >
       <div className="row">
         <div className="col-12 grid-margin">
           <div className="card">

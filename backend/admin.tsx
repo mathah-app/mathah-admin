@@ -1,5 +1,6 @@
 import { db } from "@/utils/firebase.config";
 import { carType, driverType, riderType, tripTypes } from "@/utils/types";
+
 import {
   collection,
   doc,
@@ -255,4 +256,21 @@ export const getVehicleDetails = async (id: string) => {
   } catch (error) {
     throw error;
   }
+};
+
+
+////stats
+export const getStats = async () => {
+  const [drivers, riders, trips] = await Promise.all([
+    getAllDrivers(),
+    getAllRiders(),
+    getAllTrips()
+  ]);
+
+  const revenue = trips.reduce((acc, trip: any) => acc + (trip.fare || 0), 0);
+  const activeDrivers = drivers.filter((d: any) => d.status === "active").length;
+  const passengers = riders.length;
+  const successfulTrips = trips.length;
+
+  return { revenue, activeDrivers, passengers, successfulTrips };
 };

@@ -4,7 +4,7 @@ import MainPageWrapper from "@/components/wrappers/MainPageWrapper";
 import React from "react";
 export default function Driver() {
   return (
-    <MainPageWrapper>
+    <MainPageWrapper title="Mathah Driver Details" >
       <DriverDetails />
     </MainPageWrapper>
   );
