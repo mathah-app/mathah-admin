@@ -130,7 +130,7 @@ export default function SideBar({
 
         <li
           className={`nav-item menu-items ${
-            path.includes("/drivers") && "active"
+            path.includes("/driver") && "active"
           }`}
         >
           <Link href="/drivers" className="nav-link">
