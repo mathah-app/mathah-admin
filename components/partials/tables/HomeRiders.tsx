@@ -71,9 +71,9 @@ export default function HomeRiders() {
                         <a href={`/rider?id=${item.id}`}>
                           <button
                             type="button"
-                            className="btn btn-outline-success btn-fw"
+                            className="btn btn-outline-success "
                           >
-                            View Details
+                            View
                           </button>
                         </a>
                       </td>
